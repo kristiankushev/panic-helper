@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Паник Атака Хелпър</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Безплатен образователен инструмент за оценка и овладяване на симптоми при паник атаки.">
+  <meta name="theme-color" content="#00bcd4">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js");
+  });
+}
+</script>
+
+<body>
+
+<main>
+
+  <!-- Основен инструмент -->
+  <section class="card">
+    <h1>Паник Атака Хелпър</h1>
+
+    <label>Избери симптоми и интензитет (0–10):</label>
+    <div id="symptom-container" class="checkbox-container"></div>
+
+    <label for="duration">Продължителност на атаката (минути):</label>
+    <input type="number" id="duration" min="1" placeholder="Напр. 10">
+
+    <label for="frequency">Честота на атаките (седмично):</label>
+    <input type="number" id="frequency" min="0" placeholder="Напр. 2">
+
+    <button id="checkBtn">Провери</button>
+
+    <div id="bar-container">
+      <div id="severity-bar"></div>
+    </div>
+
+    <div id="output"></div>
+
+    <!-- Медицински дисклеймър -->
+    <div class="disclaimer">
+      <strong>⚠️ Медицинско предупреждение</strong><br><br>
+      Този инструмент е с <strong>образователна и информационна цел</strong>.
+      Не представлява медицинска диагноза, лечение или заместител на консултация с лекар.
+      <br><br>
+      При симптоми като силна болка в гърдите, парализа, нарушение на говора,
+      загуба на съзнание или гърч — <strong>потърсете спешна помощ (112)</strong>.
+    </div>
+  </section>
+
+  <!-- Образователен модул -->
+  <section class="card accordion">
+    <button type="button">Какво е паник атака?</button>
+    <div class="panel">
+      Паник атаката е внезапен епизод на интензивен страх,
+      придружен от физически и психични симптоми, които не са животозастрашаващи,
+      но могат да бъдат изключително неприятни.
+    </div>
+
+    <button type="button">Чести отключващи фактори</button>
+    <div class="panel">
+      Стрес, тревожност, липса на сън, кофеин, психоемоционално натоварване.
+    </div>
+
+    <button type="button">Практични техники за овладяване</button>
+    <div class="panel">
+      Дишане, заземяване, мускулна релаксация, приемане на симптомите.
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="card">
+    <h2>За проекта</h2>
+    <p>
+      „Паник Атака Хелпър“ е безплатен уеб инструмент,
+      създаден с цел повишаване на информираността и подпомагане на самонаблюдението
+      при тревожни и паник симптоми.
+    </p>
+    <p>
+      Проектът не събира лични данни и не изисква регистрация.
+    </p>
+  </section>
+
+  <!-- PRIVACY POLICY -->
+  <section class="card">
+    <h2>Политика за поверителност</h2>
+    <p>
+      Този сайт не събира, не съхранява и не обработва лични данни.
+    </p>
+    <p>
+      Възможно е използване на услуги на трети страни (напр. Google AdSense),
+      които могат да използват „бисквитки“ за показване на персонализирани реклами
+      съгласно тяхната собствена политика за поверителност.
+    </p>
+    <p>
+      Използвайки сайта, вие се съгласявате с тази политика.
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="card">
+    <h2>Контакти</h2>
+    <p>
+      За въпроси, обратна връзка или докладване на проблеми:
+    </p>
+    <p>
+      📧 Email: <strong>contactpanichealper@gmail.com</strong>
+    </p>
+    <p style="font-size:13px;color:#666;">
+      
+    </p>
+  </section>
+
+</main>
+
+<!-- Основен JS -->
+<script src="script.js"></script>
+
+<!-- Акордеони -->
+<script>
+document.querySelectorAll(".accordion button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const panel = btn.nextElementSibling;
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
+
+</body>
+</html>
